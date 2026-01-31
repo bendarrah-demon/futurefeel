@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* Future Feel Brand Tokens */
+:root {
+  /* Brand Colors */
+  --ff-periwinkle: #93a5cf;
+  --ff-peach: #f5b8a8;
+  --ff-mint: #f0f7f7;
+  --ff-black: #1a1a1a;
+
+  /* Neutrals */
+  --ff-surface: #faf9f7;
+  --ff-card: #ffffff;
+  --ff-border: #e7e5e4;
+  --ff-text-primary: #292524;
+  --ff-text-secondary: #57534e;
+  --ff-text-muted: #a8a29e;
+
+  /* Typography */
+  --ff-font: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+/* Base Styles */
+html {
+  font-family: var(--ff-font);
+  background-color: var(--ff-surface);
+  color: var(--ff-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--ff-periwinkle);
+  color: white;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .editorial-spacing {
+    letter-spacing: -0.02em;
+  }
+
+  .gradient-brand {
+    background: linear-gradient(135deg, var(--ff-periwinkle) 0%, var(--ff-peach) 100%);
+  }
+}
