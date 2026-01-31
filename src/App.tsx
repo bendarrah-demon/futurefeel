@@ -5,6 +5,7 @@ import { Products } from "./pages/Products";
 import { HowWeWork } from "./pages/HowWeWork";
 import { Thinking } from "./pages/Thinking";
 import { About } from "./pages/About";
+import { Manifesto } from "./pages/Manifesto";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/how-we-work" element={<HowWeWork />} />
           <Route path="/thinking" element={<Thinking />} />
           <Route path="/about" element={<About />} />
+          <Route path="/manifesto" element={<Manifesto />} />
         </Routes>
       </Layout>
     </BrowserRouter>

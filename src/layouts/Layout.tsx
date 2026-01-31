@@ -89,12 +89,20 @@ export function Layout({ children }: LayoutProps) {
               </p>
             </div>
 
-            <a
-              href={`mailto:${siteContent.footer.email}`}
-              className="text-sm text-stone-500 hover:text-stone-800 transition-colors"
-            >
-              {siteContent.footer.email}
-            </a>
+            <div className="flex gap-6">
+              <Link
+                to="/manifesto"
+                className="text-sm text-stone-500 hover:text-stone-800 transition-colors"
+              >
+                Manifesto
+              </Link>
+              <a
+                href={`mailto:${siteContent.footer.email}`}
+                className="text-sm text-stone-500 hover:text-stone-800 transition-colors"
+              >
+                {siteContent.footer.email}
+              </a>
+            </div>
           </div>
         </div>
       </footer>
