@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    { "source": "/products", "destination": "/apps", "permanent": true },
+    { "source": "/how-we-work", "destination": "/about#how-we-work", "permanent": true },
+    { "source": "/thinking", "destination": "/purpose", "permanent": true },
+    { "source": "/manifesto", "destination": "/purpose", "permanent": true }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

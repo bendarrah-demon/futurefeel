@@ -1,73 +1,28 @@
-# React + TypeScript + Vite
+# futurefeel.co
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Future Feel website: calm apps for busy lives, built in public.
 
-Currently, two official plugins are available:
+## Run it
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # type-check and build to dist/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Where things live
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- `src/content/site.ts`: all page copy, apps, notes and contact details. Edit words here, not in the pages.
+- `src/content/model.ts`: the figure-of-eight model.
+- `src/pages/`: one file per page (Home, Kin, Apps, Notes, Purpose, Sources, About, Privacy, NotFound).
+- `src/components/`: the mark, buttons, the Kin week strip, the figure of eight, the follow form.
+- `src/index.css`: brand tokens (see `../brand/guidelines.md`).
+- `vercel.json`: redirects from old addresses and deep-link support.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Writing a note
+
+Add an entry to the top of `notes` in `src/content/site.ts` with a `slug`, `date` (YYYY-MM-DD), `title`, `summary` and `body` paragraphs. It appears on the home page and at `/notes/<slug>`.
+
+## Switching on the email sign-up
+
+Set `community.formAction` in `src/content/site.ts` to your newsletter service's form endpoint. Until then, "Follow the build" opens an email.

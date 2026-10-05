@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
-/* Future Feel Brand Tokens */
-:root {
-  /* Brand Colors */
-  --ff-periwinkle: #93a5cf;
-  --ff-peach: #f5b8a8;
-  --ff-mint: #f0f7f7;
-  --ff-black: #1a1a1a;
+/* Future Feel brand tokens. Use them as Tailwind utilities: bg-periwinkle, text-ink, border-line… */
+@theme {
+  --color-periwinkle: #93a5cf;
+  --color-periwinkle-deep: #4f6496; /* text, focus rings and links on light surfaces */
+  --color-peach: #f5b8a8;
+  --color-peach-deep: #a4513d;
+  --color-mint: #f0f7f7;
+  --color-ink: #1a1a1a;
+  --color-surface: #faf9f7;
+  --color-card: #ffffff;
+  --color-line: #e7e5e4;
+  --color-text: #292524;
+  --color-text-soft: #57534e;
 
-  /* Neutrals */
-  --ff-surface: #faf9f7;
-  --ff-card: #ffffff;
-  --ff-border: #e7e5e4;
-  --ff-text-primary: #292524;
-  --ff-text-secondary: #57534e;
-  --ff-text-muted: #a8a29e;
+  --color-kin: #2f6b4f;
+  --color-longview: #f97316;
 
-  /* Typography */
-  --ff-font: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
 }
 
-/* Base Styles */
 html {
-  font-family: var(--ff-font);
-  background-color: var(--ff-surface);
-  color: var(--ff-text-primary);
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -34,28 +34,31 @@ body {
   min-height: 100vh;
 }
 
-/* Selection */
 ::selection {
-  background-color: var(--ff-periwinkle);
-  color: white;
+  background-color: var(--color-peach);
+  color: var(--color-ink);
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-/* Custom utility classes */
+:focus-visible {
+  outline: 2px solid var(--color-periwinkle-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-
-  .editorial-spacing {
-    letter-spacing: -0.02em;
+  .text-pretty {
+    text-wrap: pretty;
   }
-
   .gradient-brand {
-    background: linear-gradient(135deg, var(--ff-periwinkle) 0%, var(--ff-peach) 100%);
+    background: linear-gradient(120deg, var(--color-periwinkle) 0%, var(--color-peach) 100%);
   }
 }
